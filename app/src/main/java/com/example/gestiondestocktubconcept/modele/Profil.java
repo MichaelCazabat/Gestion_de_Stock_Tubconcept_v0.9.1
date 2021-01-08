@@ -1,13 +1,7 @@
 package com.example.gestiondestocktubconcept.modele;
 
 
-import android.media.Image;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
-
-import java.util.Date;
 
 
 public class Profil {
@@ -18,10 +12,9 @@ public class Profil {
     private String categorie;
     private String reference;
     private String nom;
-    private Float prixUnite;
+    private Float prix;
     private Integer quantite;
     private String description;
-    private ImageView Photo;
 
 
     /* Constructeur: */
@@ -29,20 +22,20 @@ public class Profil {
      * @param categorie
      * @param reference
      * @param nom
-     * @param prixUnite
+     * @param prix
      * @param quantite
      * @param description
-     * @param photo
      */
-    public Profil(String categorie, String reference, String nom, Float prixUnite, Integer quantite, String description, ImageView photo) {
+    public Profil(String categorie, String reference, String nom, Float prix, Integer quantite, String description) {
         this.categorie = categorie;
         this.reference = reference;
         this.nom = nom;
-        this.prixUnite = prixUnite;
+        this.prix = prix;
         this.quantite = quantite;
         this.description = description;
-        Photo = photo;
     }
+
+
 
 
 
@@ -61,7 +54,7 @@ public class Profil {
     }
 
     public Float getPrixUnite() {
-        return prixUnite;
+        return prix;
     }
 
     public Integer getQuantite() {
@@ -70,10 +63,6 @@ public class Profil {
 
     public String getDescription() {
         return description;
-    }
-
-    public ImageView getPhoto() {
-        return Photo;
     }
 
 
@@ -92,7 +81,7 @@ public class Profil {
     }
 
     public void setPrixUnite(Float prixUnite) {
-        this.prixUnite = prixUnite;
+        this.prix = prixUnite;
     }
 
     public void setQuantite(Integer quantite) {
@@ -101,10 +90,6 @@ public class Profil {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setPhoto(ImageView photo) {
-        Photo = photo;
     }
 
 

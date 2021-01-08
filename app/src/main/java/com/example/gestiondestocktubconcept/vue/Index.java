@@ -4,13 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gestiondestocktubconcept.Acceuil;
-import com.example.gestiondestocktubconcept.Connexion_admin;
-import com.example.gestiondestocktubconcept.Connexion_commercant;
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.controleur.Controle;
 
@@ -25,13 +21,14 @@ public class Index extends AppCompatActivity {
         setContentView(R.layout.index);
         init();
         this.controle = Controle.getInstance();
+
+        init();
     }
 
     /* ++propriétés++ */
 
     private Button btn_admin;
     private Button btn_commercant;
-
 
     /*  --propriétés-- */
 
@@ -53,7 +50,10 @@ public class Index extends AppCompatActivity {
         /* --intitalisation des liens avec les objects graphiques-- */
 
 
+
         /* ++ click sur les buttons pour changer d'activity ++ */
+
+        //startActivity(new Intent(CurrentActivityName.this, NewActivityName.class)); permet de changer d'activité en 1 ligne
 
 
     btn_admin.setOnClickListener(new View.OnClickListener(){
@@ -68,9 +68,10 @@ public class Index extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             Intent j = new Intent(Index.this, Connexion_commercant.class);
+            startActivity(j);
         }
     });
-
+        /* -- click sur les buttons pour changer d'activity -- */
 
     }
 }

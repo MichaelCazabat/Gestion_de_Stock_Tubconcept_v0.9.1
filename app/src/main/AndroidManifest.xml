@@ -9,18 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionDeStockTubconcept">
-        <activity android:name=".Acceuil"></activity>
-        <activity android:name=".Connexion_admin" />
-        <activity android:name=".Connexion_commercant" />
-        <activity
-            android:name=".Connexion_commercants"
-            android:label="@string/title_activity_connexion_commercants"
-            android:theme="@style/Theme.GestionDeStockTubconcept.NoActionBar" />
-        <activity
-            android:name=".connexion"
-            android:label="@string/title_activity_connexion"
-            android:theme="@style/Theme.GestionDeStockTubconcept.NoActionBar" />
 
+        <activity android:name=".vue.liste_produits"
+            android:windowSoftInputMode="adjustNothing">
+
+        </activity>
+
+        <activity android:name=".vue.Acceuil" />
+        <activity android:name=".vue.Connexion_admin" />
+        <activity android:name=".vue.Connexion_commercant" />
         <activity
             android:name=".vue.Index"
             android:label="@string/app_name">
@@ -28,8 +25,21 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+        
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.gestiondestocktubconcept.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+
+        </provider>
+    
     </application>
 
 </manifest>
