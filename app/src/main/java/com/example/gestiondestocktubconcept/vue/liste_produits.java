@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
@@ -30,7 +31,27 @@ public class liste_produits extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_produits);
 
+
+        // data to populate the RecyclerView with
+
+        //("Categorie","ReferenceTest","NomTest",69.,42,"DescriptionTest");
+
+        ArrayList<String> produits = new ArrayList<>();
+        produits.add("Test1");
+        produits.add("Test2");
+        produits.add("Test3");
+        produits.add("Test4");
+        produits.add("Test5");
+
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.rv_produits);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, produits);
+        //adapter.setClickListener((MyRecyclerViewAdapter.ItemClickListener) this);
+        recyclerView.setAdapter(adapter);
     }
+
 
     /* ++propriétées++ */
     private ListView listView;
@@ -41,6 +62,7 @@ public class liste_produits extends AppCompatActivity {
     private EditText txt_input_quantite;
     private EditText txt_input_description;
     private Button btn_ajouter;
+    MyRecyclerViewAdapter adapter;
 
 
     /* --propriétées-- */
@@ -63,25 +85,19 @@ public class liste_produits extends AppCompatActivity {
 
         Button btn_ajouter = (Button) findViewById(R.id.constraint_layout);
 
-
-
-
-        List<Profil> liste_produits = new ArrayList<>();
-        liste_produits.add(new Profil(value_categorie,value_reference,value_nom,value_prix,value_quantite,value_description));
-
-
-
-
-
     }
 
 
-        String value_categorie = txt_input_categorie.getText().toString();
-        String value_reference = txt_input_reference.getText().toString();
-        String value_nom = txt_input_nom.getText().toString();
-        Float value_prix = Float.parseFloat(txt_input_prix.getText().toString());
-        Integer value_quantite =Integer.valueOf(txt_input_quantite.getText().toString());
-        String value_description = txt_input_description.getText().toString();
+
+
+
+
+   // String value_categorie = txt_input_categorie.getText().toString();
+   // String value_reference = txt_input_reference.getText().toString();
+   // String value_nom = txt_input_nom.getText().toString();
+   // Float value_prix = Float.parseFloat(txt_input_prix.getText().toString());
+   // Integer value_quantite =Integer.valueOf(txt_input_quantite.getText().toString());
+   // String value_description = txt_input_description.getText().toString();
 
 
 
@@ -89,6 +105,9 @@ public class liste_produits extends AppCompatActivity {
 
 
 
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    }
 
 
 
@@ -101,7 +120,7 @@ public class liste_produits extends AppCompatActivity {
 
         data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
         for(int i = 0; i<6; i++){
-          data.append("\n" + "test");
+            data.append("\n" + "test");
         }
 
         /*  --Creation des données--  */

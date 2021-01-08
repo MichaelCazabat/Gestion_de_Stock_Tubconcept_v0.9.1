@@ -1,9 +1,6 @@
 package com.example.gestiondestocktubconcept.modele;
 
 
-import android.widget.ImageView;
-
-
 public class Profil {
 
 
@@ -12,7 +9,7 @@ public class Profil {
     private String categorie;
     private String reference;
     private String nom;
-    private Float prix;
+    private Double prix;
     private Integer quantite;
     private String description;
 
@@ -26,7 +23,7 @@ public class Profil {
      * @param quantite
      * @param description
      */
-    public Profil(String categorie, String reference, String nom, Float prix, Integer quantite, String description) {
+    public Profil(String categorie, String reference, String nom, Double prix, Integer quantite, String description) {
         this.categorie = categorie;
         this.reference = reference;
         this.nom = nom;
@@ -53,7 +50,7 @@ public class Profil {
         return nom;
     }
 
-    public Float getPrixUnite() {
+    public Double getPrixUnite() {
         return prix;
     }
 
@@ -80,7 +77,7 @@ public class Profil {
         this.nom = nom;
     }
 
-    public void setPrixUnite(Float prixUnite) {
+    public void setPrixUnite(Double prixUnite) {
         this.prix = prixUnite;
     }
 
