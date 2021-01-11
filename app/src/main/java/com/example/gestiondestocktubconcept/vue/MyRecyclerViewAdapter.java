@@ -35,20 +35,20 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
+       // String animal = mData.get(position);
         String categorie = mData.get(position);
         String reference = mData.get(position);
         String nom = mData.get(position);
-        String prix =mData.get(position);
-        String quantite=mData.get(position);
-        String description=mData.get(position);
+        String prix = mData.get(position);
+        String quantite= mData.get(position);
+        String description= mData.get(position);
 
-        holder.categorie.setText(animal);
-        holder.reference.setText(animal);
-        holder.nom.setText(animal);
-        holder.prix.setText(animal);
-        holder.quantite.setText(animal);
-        holder.decription.setText(animal);
+        holder.categorie.setText(categorie);
+        holder.reference.setText(reference);
+        holder.nom.setText(nom);
+        holder.prix.setText(prix);
+        holder.quantite.setText(quantite);
+        holder.decription.setText(description);
 
 
     }

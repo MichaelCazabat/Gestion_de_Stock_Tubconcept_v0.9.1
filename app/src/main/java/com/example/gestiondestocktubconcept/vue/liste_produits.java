@@ -36,12 +36,15 @@ public class liste_produits extends AppCompatActivity {
 
         //("Categorie","ReferenceTest","NomTest",69.,42,"DescriptionTest");
 
+
         ArrayList<String> produits = new ArrayList<>();
-        produits.add("Test1");
-        produits.add("Test2");
-        produits.add("Test3");
-        produits.add("Test4");
-        produits.add("Test5");
+        produits.add("Catégorie");
+        produits.add("Réference");
+        produits.add("Nom");
+        produits.add("Prix");
+        produits.add("Quantité");
+        produits.add("Description");
+
 
 
         // set up the RecyclerView

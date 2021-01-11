@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/tv_categorie_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
@@ -19,7 +19,7 @@
 
     <TextView
         android:id="@+id/tv_reference_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
@@ -30,7 +30,7 @@
 
     <TextView
         android:id="@+id/tv_nom_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -41,7 +41,7 @@
 
     <TextView
         android:id="@+id/tv_prix_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
@@ -51,16 +51,17 @@
 
     <TextView
         android:id="@+id/tv_quantite_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:autoSizeTextType="uniform"
         android:text="Quantité"
         android:visibility="visible"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_description_produit"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
