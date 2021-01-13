@@ -33,7 +33,7 @@ public class Page_login_commercant extends AppCompatActivity {
 
                         @Override
                         public void onClick(View v) {
-                                Intent k = new Intent(Page_login_commercant.this, Inscription_magasin_commercant.class);
+                                Intent k = new Intent(Page_login_commercant.this, inscription_commercant.class);
                         startActivity(k);
                         }
                 });
@@ -42,7 +42,7 @@ public class Page_login_commercant extends AppCompatActivity {
 
                         @Override
                         public void onClick(View v) {
-                                Intent l = new Intent(Page_login_commercant.this,liste_magasin.class);
+                                Intent l = new Intent(Page_login_commercant.this,Inscription_magasin_commercant.class);
                                 startActivity(l);
                         }
                 });
