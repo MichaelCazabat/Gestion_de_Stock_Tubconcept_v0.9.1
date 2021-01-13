@@ -42,13 +42,4 @@ public class Connexion_admin extends AppCompatActivity{
 
     }
 
-
-
-
-
-
-
-
-
-
 }

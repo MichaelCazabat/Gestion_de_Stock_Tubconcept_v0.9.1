@@ -29,10 +29,10 @@ public class Index extends AppCompatActivity {
 
     private Button btn_admin;
     private Button btn_commercant;
-
+    private Controle controle;
     /*  --propriétés-- */
 
-    private Controle controle;
+
 
 
 
@@ -67,7 +67,7 @@ public class Index extends AppCompatActivity {
     btn_commercant.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent j = new Intent(Index.this, Connexion_commercant.class);
+            Intent j = new Intent(Index.this, Page_login_commercant.class);
             startActivity(j);
         }
     });
