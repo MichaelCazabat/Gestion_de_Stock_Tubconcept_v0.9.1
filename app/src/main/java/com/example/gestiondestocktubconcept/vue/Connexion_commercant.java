@@ -25,20 +25,28 @@ public class Connexion_commercant extends AppCompatActivity {
 
         private EditText txt_id_commercant;
         private EditText mdp_commercant;
-        private Button btn_connexion_admin;
+        private Button btn_connexion_commercant;
+        private Button btn_inscription_commercant;
 
         /* --propriétées-- */
 
 
         public void next_button() {
 
-                Button btn_connexion_admin = (Button) findViewById(R.id.btn_connexion_commercant);
-                btn_connexion_admin.setOnClickListener(new View.OnClickListener() {
+                Button btn_connexion_commercant = (Button) findViewById(R.id.btn_connexion_commercant);
+                Button btn_inscription_commercant = (Button) findViewById((R.id.btn_inscription_commercant));
+                btn_connexion_commercant.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                                 startActivity(new Intent(Connexion_commercant.this, liste_produits.class));
                         }
                 });
+                btn_inscription_commercant.setOnClickListener((new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                startActivity(new Intent(Connexion_commercant.this, ));
+                        }
+                }));
 
 
         }

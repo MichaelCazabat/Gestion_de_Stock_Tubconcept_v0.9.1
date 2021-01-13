@@ -40,6 +40,8 @@ public class liste_produits extends AppCompatActivity {
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rv_produits);
 
+        List<Profil> listeProduit = new ArrayList<>();
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         // initialisation de l'adapter
@@ -102,9 +104,10 @@ public class liste_produits extends AppCompatActivity {
             String value_categorie = txt_input_categorie.getText().toString();
 
             Toast.makeText(getApplicationContext(), "ALED CA MARCHE PAS", Toast.LENGTH_LONG).show();
-            getListeProduit().add(new Profil(value_categorie,value_reference,value_nom,value_prix,value_quantite,value_description));
-            getListeProduit().add(new Profil("voiture", "RF745963-65", "twingo", 3000., 1, "c une joli voiture"));
-            adapter.notifyItemInserted(1);
+            //getListeProduit().add(new Profil(value_categorie,value_reference,value_nom,value_prix,value_quantite,value_description));
+            listeProduit.add(new Profil("voiture", "RF745963-65", "twingo", 3000., 1, "c une joli voiture"));
+            //listeProduit.add(new Profil(value_categorie, value_reference, value_nom, value_prix, value_quantite, value_description));
+           // adapter.notifyItemInserted(1);
 
         } else {
             Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
