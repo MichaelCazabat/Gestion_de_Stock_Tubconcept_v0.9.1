@@ -25,6 +25,7 @@ public class inscription_commercant extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent n = new Intent(inscription_commercant.this, Inscription_magasin_commercant.class);
+                startActivity(n);
             }
         });
     }
