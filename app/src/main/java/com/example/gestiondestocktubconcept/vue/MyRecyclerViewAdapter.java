@@ -1,106 +1,102 @@
 package com.example.gestiondestocktubconcept.vue;
 
-import android.content.Context;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gestiondestocktubconcept.R;
+import com.example.gestiondestocktubconcept.modele.Profil;
 
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
-    private LayoutInflater mInflater;
-    private ItemClickListener mClickListener;
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
 
+    private AdapterView.OnItemClickListener onItemClickListener;
 
-    // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data) {
-        this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+    List<Profil> liste_produit;
+//Constructeur de la liste des produits
+    public MyRecyclerViewAdapter(List<Profil> liste_produit) {
+        this.liste_produit = liste_produit;
     }
 
-    // inflates the row layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
-        return new ViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_row,parent,false);
+        return new RowViewHolder(itemView);
     }
-
-    // binds the data to the TextView in each row
+// Lie les élements avec la vue
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-       // String animal = mData.get(position);
-        String categorie = mData.get(position);
-        String reference = mData.get(position);
-        String nom = mData.get(position);
-        String prix = mData.get(position);
-        String quantite= mData.get(position);
-        String description= mData.get(position);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        RowViewHolder rowViewHolder = (RowViewHolder) holder;
 
-        holder.categorie.setText(categorie);
-        holder.reference.setText(reference);
-        holder.nom.setText(nom);
-        holder.prix.setText(prix);
-        holder.quantite.setText(quantite);
-        holder.decription.setText(description);
+        int rowPos = rowViewHolder.getBindingAdapterPosition();
 
+        if (rowPos == 0) {
+            //Cellules de l'entête
+            // permet de mettre un background a la cellule : rowViewHolder.txt_categorie.setBackgroundResource();
+           rowViewHolder.txt_categorie.setText("Catégorie");
+           rowViewHolder.txt_reference.setText("Reference");
+           rowViewHolder.txt_nom.setText("Nom");
+           rowViewHolder.txt_prix.setText("Prix");
+           rowViewHolder.txt_quantite.setText("Quantité");
+           rowViewHolder.txt_description.setText("Description");
+        } else{
+            Profil profil = liste_produit.get(rowPos-1);
+
+            //Contenues des cellules
+            rowViewHolder.txt_categorie.setText(profil.getCategorie()+"");
+            rowViewHolder.txt_reference.setText(profil.getReference()+"");
+            rowViewHolder.txt_nom .setText(profil.getNom()+"");
+            rowViewHolder.txt_prix.setText(profil.getPrixUnite()+"");
+            rowViewHolder.txt_quantite.setText(profil.getQuantite()+"");
+            rowViewHolder.txt_description.setText(profil.getDescription()+"");
+
+
+        }
 
     }
 
-    // total number of rows
     @Override
     public int getItemCount() {
-        return mData.size();
+        return liste_produit.size()+1;
     }
 
 
-    // stores and recycles views as they are scrolled off screen
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView nom;
-        TextView categorie;
-        TextView reference;
-        TextView prix;
-        TextView quantite;
-        TextView decription;
 
 
-        ViewHolder(View itemView) {
+    public class RowViewHolder extends RecyclerView.ViewHolder {
+        protected TextView txt_categorie;
+        protected TextView txt_reference;
+        protected TextView txt_nom;
+        protected TextView txt_prix;
+        protected TextView txt_quantite;
+        protected TextView txt_description;
+
+        public RowViewHolder(View itemView) {
             super(itemView);
-            nom = itemView.findViewById(R.id.tv_nom_produit);
-            categorie = itemView.findViewById(R.id.tv_categorie_produit);
-            reference = itemView.findViewById(R.id.tv_reference_produit);
-            prix = itemView.findViewById(R.id.tv_prix_produit);
-            quantite = itemView.findViewById(R.id.tv_quantite_produit);
-            decription = itemView.findViewById(R.id.tv_description_produit);
 
-
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            txt_categorie = itemView.findViewById(R.id.tv_categorie_produit);
+            txt_reference = itemView.findViewById(R.id.tv_reference_produit);
+            txt_nom = itemView.findViewById(R.id.tv_nom_produit);
+            txt_prix = itemView.findViewById(R.id.tv_prix_produit);
+            txt_quantite = itemView.findViewById(R.id.tv_quantite_produit);
+            txt_description = itemView.findViewById(R.id.tv_description_produit);
         }
     }
 
-    // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return String.valueOf(liste_produit.get(id));
     }
 
-    // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
-    }
 
-    // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
-    }
+
 }
