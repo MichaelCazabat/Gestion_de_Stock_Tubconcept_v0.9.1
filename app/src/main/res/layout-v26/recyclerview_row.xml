@@ -9,64 +9,67 @@
 
     <TextView
         android:id="@+id/tv_categorie_produit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Catégorie"
         android:visibility="visible"
+        app:autoSizeMinTextSize="6sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_reference_produit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Reference"
         android:visibility="visible"
-        app:autoSizeTextType="uniform"
-        tools:visibility="visible" />
+        app:autoSizeMinTextSize="6sp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_nom_produit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
 
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Nom"
         android:visibility="visible"
+        app:autoSizeMinTextSize="6sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_prix_produit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Prix"
         android:visibility="visible"
+        app:autoSizeMinTextSize="6sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_quantite_produit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Quantité"
         android:visibility="visible"
+        app:autoSizeMinTextSize="6sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/tv_description_produit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
-        android:text="Description"
+        android:ellipsize="end"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:scrollHorizontally="true"
         android:visibility="visible"
+        app:autoSizeMinTextSize="6sp"
         app:autoSizeTextType="uniform" />
 
 

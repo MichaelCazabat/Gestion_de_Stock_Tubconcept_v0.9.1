@@ -120,7 +120,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical" />
+                    android:orientation="vertical" >
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="onClickData"
+                        android:text="Ajouter Ligne" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -146,7 +154,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="test" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -161,7 +170,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="test" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -176,7 +186,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="test" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -191,7 +202,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="12.12" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -206,7 +218,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -221,7 +234,8 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
                         android:gravity="center|center_vertical"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:text="test" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -235,7 +249,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:onClick="export"
-                        android:text="Ajouter" />
+                        android:text="Exporter" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

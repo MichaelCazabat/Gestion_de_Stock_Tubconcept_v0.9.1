@@ -13,14 +13,19 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,137 +36,149 @@ public class liste_produits extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_produits);
 
-
-        // data to populate the RecyclerView with
-
-        //("Categorie","ReferenceTest","NomTest",69.,42,"DescriptionTest");
-
-
-        ArrayList<String> produits = new ArrayList<>();
-        produits.add("Catégorie");
-        produits.add("Réference");
-        produits.add("Nom");
-        produits.add("Prix");
-        produits.add("Quantité");
-        produits.add("Description");
-
-
-
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.rv_produits);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, produits);
-        //adapter.setClickListener((MyRecyclerViewAdapter.ItemClickListener) this);
+        MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(getListeProduit());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+
+
     }
+
+    //addItem(listeProduit,"voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
+    //getListeProduit.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voitssssrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrsssssssssssssssssure"));
+    //listeProduit.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
+
+
+    private List<Profil> getListeProduit() {
+        List<Profil> listeProduit = new ArrayList<>();
+        //Liste de nos produits
+        //  ajout_produits(listeProduit,txt_categorie,txt_reference,txt_nom,Double.parseDouble(txt_prix),Integer.parseInt(txt_quantite),txt_description);
+
+        return listeProduit;
+    }
+
+    public void ajout_produits(List<Profil> listeProduit, String categorie, String reference, String nom, Double prix, int quantite, String descritpion) {
+        listeProduit.add(new Profil(categorie, reference, nom, prix, quantite, descritpion));
+    }
+
+
 
 
     /* ++propriétées++ */
     private ListView listView;
-    private EditText txt_input_categorie;
-    private EditText txt_input_reference;
-    private EditText txt_input_nom;
-    private EditText txt_input_prix;
-    private EditText txt_input_quantite;
-    private EditText txt_input_description;
-    private Button btn_ajouter;
     MyRecyclerViewAdapter adapter;
-
 
     /* --propriétées-- */
 
-    private void init(){
 
+    public void onClickData(View view) {
 
 
         EditText txt_input_categorie = (EditText) findViewById(R.id.txt_input_categorie);
-
         EditText txt_input_reference = (EditText) findViewById(R.id.txt_input_reference);
-
         EditText txt_input_nom = (EditText) findViewById(R.id.txt_input_nom);
-
         EditText txt_input_prix = (EditText) findViewById(R.id.txt_input_prix);
-
         EditText txt_input_quantite = (EditText) findViewById(R.id.txt_input_quantite);
-
         EditText txt_input_description = (EditText) findViewById(R.id.txt_input_description);
+        Button btn_ajouter = (Button) findViewById(R.id.btn_ajouter);
 
-        Button btn_ajouter = (Button) findViewById(R.id.constraint_layout);
+        //     if(txt_input_categorie != null){
+        //         String value_categorie = txt_input_categorie.getText().toString();
+        //     }
+        //     else{
+        //     }
+        //     if(txt_input_reference != null){
+        //         String value_reference = txt_input_reference.getText().toString();
+//
+        //     }
+        //     else{
+        //     }
+        //     if(txt_input_nom != null){
+        //         String value_nom = txt_input_nom.getText().toString();
+//
+        //     }
+        //     else{
+        //     }
+        //     if(txt_input_prix != null){
+        //         Double value_prix = Double.parseDouble(txt_input_prix.getText().toString());
+        //     }
+        //     else{
+        //     }
+        //     if(txt_input_quantite != null){
+        //         Integer value_quantite =(Integer.valueOf(txt_input_quantite.getText().toString()));
+//
+        //     }
+        //     else{
+        //     }
+        //     if(txt_input_description != null){
+        //         String value_description = txt_input_description.getText().toString();
+        //     }
+        //     else{
+        //     }
 
+        if (txt_input_categorie != null && txt_input_reference != null && txt_input_nom != null && txt_input_prix != null && txt_input_quantite != null && txt_input_description != null) {
+            String value_description = txt_input_description.getText().toString();
+            Integer value_quantite = (Integer.valueOf(txt_input_quantite.getText().toString()));
+            Double value_prix = Double.parseDouble(txt_input_prix.getText().toString());
+            String value_nom = txt_input_nom.getText().toString();
+            String value_reference = txt_input_reference.getText().toString();
+            String value_categorie = txt_input_categorie.getText().toString();
+            Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
+            ajout_produits(getListeProduit(), value_categorie, value_reference, value_nom, Double.parseDouble(value_prix.toString()), Integer.parseInt(value_quantite.toString()), value_description);
+
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
+        }
     }
 
 
+        public void export (View view){
 
 
+            /*  ++Creation des données++  */
+
+            StringBuilder data = new StringBuilder();
+
+            data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
+            for (int i = 0; i < 6; i++) {
+                data.append("\n" + "test");
+            }
+
+            /*  --Creation des données--  */
 
 
-   // String value_categorie = txt_input_categorie.getText().toString();
-   // String value_reference = txt_input_reference.getText().toString();
-   // String value_nom = txt_input_nom.getText().toString();
-   // Float value_prix = Float.parseFloat(txt_input_prix.getText().toString());
-   // Integer value_quantite =Integer.valueOf(txt_input_quantite.getText().toString());
-   // String value_description = txt_input_description.getText().toString();
+            try {
+                /*  ++Sauvegarde des données dans l'appareil++ */
+
+                FileOutputStream out = openFileOutput("data.csv", Context.MODE_PRIVATE);
+                out.write((data.toString()).getBytes());
+                out.close();
+
+                /*  --Sauvegarde des données dans l'appareil-- */
 
 
+                /*  ++Export des données++  */
+
+                Context context = getApplicationContext();
+                File filelocation = new File(getFilesDir(), "data.csv");
+                Uri path = FileProvider.getUriForFile(context, "com.example.gestiondestocktubconcept.FileProvider", filelocation);
+                Intent fileIntent = new Intent(Intent.ACTION_SEND);
+                fileIntent.setType("text/csv");
+                fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+                fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+                startActivity(Intent.createChooser(fileIntent, "Send mail"));
+
+                /*  --Export des données--  */
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
-
-
-
-    public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-    }
-
-
-
-    public void export (View view){
-
-
-        /*  ++Creation des données++  */
-
-        StringBuilder data = new StringBuilder();
-
-        data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
-        for(int i = 0; i<6; i++){
-            data.append("\n" + "test");
         }
-
-        /*  --Creation des données--  */
-
-
-        try {
-            /*  ++Sauvegarde des données dans l'appareil++ */
-
-            FileOutputStream out = openFileOutput("data.csv", Context.MODE_PRIVATE);
-            out.write((data.toString()).getBytes());
-            out.close();
-
-            /*  --Sauvegarde des données dans l'appareil-- */
-
-
-            /*  ++Export des données++  */
-
-            Context context = getApplicationContext();
-            File filelocation = new File(getFilesDir(), "data.csv");
-            Uri path = FileProvider.getUriForFile(context,"com.example.gestiondestocktubconcept.FileProvider",filelocation);
-            Intent fileIntent = new Intent(Intent.ACTION_SEND);
-            fileIntent.setType("text/csv");
-            fileIntent.putExtra(Intent.EXTRA_SUBJECT,"Data");
-            fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            fileIntent.putExtra(Intent.EXTRA_STREAM,path);
-            startActivity(Intent.createChooser(fileIntent, "Send mail"));
-
-            /*  --Export des données--  */
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-
-
 
 
     }
-
-
-
-}
