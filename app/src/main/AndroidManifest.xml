@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionDeStockTubconcept">
-        <activity android:name=".vue.inscription_commercant"></activity>
+        <activity android:name=".vue.Magasin"></activity>
+        <activity android:name=".vue.inscription_commercant" />
         <activity android:name=".vue.liste_magasin" />
         <activity
             android:name=".vue.liste_produits"
