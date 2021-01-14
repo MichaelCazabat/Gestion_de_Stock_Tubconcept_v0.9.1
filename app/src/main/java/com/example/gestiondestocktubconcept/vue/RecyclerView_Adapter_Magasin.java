@@ -70,7 +70,7 @@ public class RecyclerView_Adapter_Magasin extends RecyclerView.Adapter<RecyclerV
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
+    void setClickListener (ItemClickListener itemClickListener ) {
         this.mClickListener = itemClickListener;
     }
 
