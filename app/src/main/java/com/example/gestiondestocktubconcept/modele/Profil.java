@@ -1,6 +1,11 @@
 package com.example.gestiondestocktubconcept.modele;
 
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Profil {
 
 
@@ -88,5 +93,17 @@ public class Profil {
         this.description = description;
     }
 
+//conversion du profil au format JSONArray
+    public JSONArray convertToJSONArray(){
+        List laListe = new ArrayList();
+        laListe.add(categorie);
+        laListe.add(reference);
+        laListe.add(nom);
+        laListe.add(prix);
+        laListe.add(quantite);
+        laListe.add(description);
+        return new JSONArray(laListe);
+
+    }
 
 }
