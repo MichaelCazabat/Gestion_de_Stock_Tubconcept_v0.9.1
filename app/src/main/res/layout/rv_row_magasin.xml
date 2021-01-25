@@ -1,14 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/tvAnimalName"
+        android:id="@+id/id_row_magasin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="41"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/categorie_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="voiture"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/reference_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="A1232"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/nom_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="Lamborghini Uracan"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/prix_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="230000  €"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/quanttite_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:text="5"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="2sp"
+        app:autoSizeTextType="uniform" />
+
+    <TextView
+        android:id="@+id/description_row_magasin"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:text="ceci est une description"
+        android:visibility="visible"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeTextType="uniform" />
+
 </LinearLayout>

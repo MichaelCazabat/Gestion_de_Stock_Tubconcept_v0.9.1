@@ -32,6 +32,8 @@ import java.util.List;
 
 public class liste_produits extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,16 +62,16 @@ public class liste_produits extends AppCompatActivity {
     //addItem(listeProduit,"voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
     List<Profil> listeProduit = new ArrayList<>();
 
-    private List<Profil> getListeProduit() {
+    static List<Profil> getListeProduit() {
         List<Profil> listeProduit = new ArrayList<>();
         //Liste de nos produits
         //  ajout_produits(listeProduit,txt_categorie,txt_reference,txt_nom,Double.parseDouble(txt_prix),Integer.parseInt(txt_quantite),txt_description);
-        //listeProduit.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
+        listeProduit.add(new Profil("Voiture","A1232","Lamborghini Uracan",230000.00,5,"ceci est une description"));
 
         return listeProduit;
     }
 
-    public void ajout_produits(List<Profil> listeProduit, String categorie, String reference, String nom, Double prix, int quantite, String descritpion) {
+    public static void ajout_produits(List<Profil> listeProduit, String categorie, String reference, String nom, Double prix, int quantite, String descritpion) {
         listeProduit.add(new Profil(categorie, reference, nom, prix, quantite, descritpion));
         //adapter.notifyItemInserted(adapter.getItemCount()-1);
     }

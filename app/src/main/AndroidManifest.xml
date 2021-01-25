@@ -11,14 +11,12 @@
         android:theme="@style/Theme.GestionDeStockTubconcept">
         <activity android:name=".vue.Magasin"></activity>
         <activity android:name=".vue.inscription_commercant" />
-        <activity android:name=".vue.liste_magasin" />
         <activity
             android:name=".vue.liste_produits"
             android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".vue.Accueil" />
         <activity android:name=".vue.Connexion_admin" />
         <activity android:name=".vue.Page_login_commercant" />
-        <activity android:name=".vue.Inscription_magasin_commercant" />
         <activity
             android:name=".vue.Index"
             android:label="@string/app_name">
@@ -39,5 +37,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

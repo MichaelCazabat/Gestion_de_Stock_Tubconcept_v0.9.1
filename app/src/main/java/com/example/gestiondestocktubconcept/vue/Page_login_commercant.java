@@ -26,23 +26,15 @@ public class Page_login_commercant extends AppCompatActivity {
         EditText txt_id_commercant;
         EditText mdp_commercant;
         Button btn_connexion_commercant = (Button) findViewById(R.id.btn_connexion_commercant);
-        Button btn_inscription_commercant = (Button) findViewById((R.id.btn_inscription_commercant));
+
         /* --propriétées-- */
 
-                btn_inscription_commercant.setOnClickListener(new View.OnClickListener(){
-
-                        @Override
-                        public void onClick(View v) {
-                                Intent k = new Intent(Page_login_commercant.this, inscription_commercant.class);
-                        startActivity(k);
-                        }
-                });
 
                 btn_connexion_commercant.setOnClickListener(new View.OnClickListener(){
 
                         @Override
                         public void onClick(View v) {
-                                Intent l = new Intent(Page_login_commercant.this,liste_magasin.class);
+                                Intent l = new Intent(Page_login_commercant.this,Magasin.class);
                                 startActivity(l);
                         }
                 });

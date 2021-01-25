@@ -25,7 +25,8 @@
                 android:layout_weight="1"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
                 android:gravity="center"
-                android:text="Magasin" />
+                android:text="Magasin"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout

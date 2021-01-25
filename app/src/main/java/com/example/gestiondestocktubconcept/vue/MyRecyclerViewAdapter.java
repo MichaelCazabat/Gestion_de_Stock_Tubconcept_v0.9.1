@@ -22,6 +22,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter {
     private AdapterView.OnItemClickListener onItemClickListener;
 
     List<Profil> liste_produit;
+
 //Constructeur de la liste des produits
     public MyRecyclerViewAdapter(List<Profil> liste_produit) {
         this.liste_produit = liste_produit;

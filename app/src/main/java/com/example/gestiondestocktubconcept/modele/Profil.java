@@ -5,7 +5,6 @@ public class Profil {
 
 
     /*propriétés*/
-
     private String categorie;
     private String reference;
     private String nom;

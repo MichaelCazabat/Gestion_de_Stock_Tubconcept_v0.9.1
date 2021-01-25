@@ -24,7 +24,7 @@ public class inscription_commercant extends AppCompatActivity {
         btn_enregistrement_commercant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent n = new Intent(inscription_commercant.this, Inscription_magasin_commercant.class);
+                Intent n = new Intent(inscription_commercant.this, Magasin.class);
                 startActivity(n);
             }
         });

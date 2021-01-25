@@ -65,19 +65,6 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_inscription_commercant"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Inscription" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
                     android:id="@+id/btn_connexion_commercant"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
