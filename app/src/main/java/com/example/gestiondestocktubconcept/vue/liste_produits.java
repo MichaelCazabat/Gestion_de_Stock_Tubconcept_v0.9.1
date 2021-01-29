@@ -78,7 +78,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
     public void onButtonClick(View view){
 
-        ajout_un_item("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
+        ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),12.50,55,value_description.getText().toString());
     }
 
     @Override
