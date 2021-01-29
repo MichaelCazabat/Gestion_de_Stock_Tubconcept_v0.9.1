@@ -50,12 +50,12 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_produits);
 
-        value_categorie = (EditText) findViewById(R.id.txt_input_categorie);
-        value_reference = (EditText) findViewById(R.id.txt_input_reference);
-        value_nom = (EditText) findViewById(R.id.txt_input_nom);
-        value_prix = (EditText) findViewById(R.id.txt_input_prix);
-        value_quantite = (EditText) findViewById(R.id.txt_input_quantite);
-        value_description = (EditText) findViewById(R.id.txt_input_description);
+        value_categorie =  findViewById(R.id.txt_input_categorie);
+        value_reference =  findViewById(R.id.txt_input_reference);
+        value_nom = findViewById(R.id.txt_input_nom);
+        value_prix =  findViewById(R.id.txt_input_prix);
+        value_quantite =  findViewById(R.id.txt_input_quantite);
+        value_description = findViewById(R.id.txt_input_description);
 
 
         // Données pour remplir le RecyclerView :
@@ -77,8 +77,9 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
 
     public void onButtonClick(View view){
-
-        ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),12.50,55,value_description.getText().toString());
+        Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
+        Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
+        ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
     }
 
     @Override
@@ -107,13 +108,13 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
     public void onClickData(View view) {
 
-        EditText txt_input_categorie = (EditText) findViewById(R.id.txt_input_categorie);
-        EditText txt_input_reference = (EditText) findViewById(R.id.txt_input_reference);
-        EditText txt_input_nom = (EditText) findViewById(R.id.txt_input_nom);
-        EditText txt_input_prix = (EditText) findViewById(R.id.txt_input_prix);
-        EditText txt_input_quantite = (EditText) findViewById(R.id.txt_input_quantite);
-        EditText txt_input_description = (EditText) findViewById(R.id.txt_input_description);
-        Button btn_ajouter = (Button) findViewById(R.id.btn_ajouter);
+        EditText txt_input_categorie =  findViewById(R.id.txt_input_categorie);
+        EditText txt_input_reference =  findViewById(R.id.txt_input_reference);
+        EditText txt_input_nom =  findViewById(R.id.txt_input_nom);
+        EditText txt_input_prix = findViewById(R.id.txt_input_prix);
+        EditText txt_input_quantite =  findViewById(R.id.txt_input_quantite);
+        EditText txt_input_description =  findViewById(R.id.txt_input_description);
+        Button btn_ajouter =  findViewById(R.id.btn_ajouter);
 
 
         if (txt_input_categorie != null && txt_input_reference != null && txt_input_nom != null && txt_input_prix != null && txt_input_quantite != null && txt_input_description != null) {
