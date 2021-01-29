@@ -53,12 +53,11 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             holder.txt_description.setText("Description");
         }else{
             holder.txt_categorie.setText(liste_produits.get(position).getCategorie());
-         // holder.txt_categorie.setText("");
-         // holder.txt_reference.setText("");
-         // holder.txt_nom.setText("");
-         // holder.txt_prix.setText("");
-         // holder.txt_quantite.setText("");
-         // holder.txt_description.setText("");
+             holder.txt_reference.setText(liste_produits.get(position).getReference());
+             holder.txt_nom.setText(liste_produits.get(position).getNom());
+             holder.txt_prix.setText(liste_produits.get(position).getPrixUnite().toString());
+             holder.txt_quantite.setText(liste_produits.get(position).getQuantite().toString());
+             holder.txt_description.setText(liste_produits.get(position).getDescription());
         }
     }
 
