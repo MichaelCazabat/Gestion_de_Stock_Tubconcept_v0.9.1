@@ -16,12 +16,12 @@ import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> liste_produits;
+    private List<Profil> liste_produits;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    MyRecyclerViewAdapter(Context context, List<String> data) {
+    MyRecyclerViewAdapter(Context context, List<Profil> data) {
 
         this.mInflater = LayoutInflater.from(context);
         this.liste_produits = data;
@@ -53,15 +53,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             holder.txt_description.setText("Description");
         }else{
 
-            holder.txt_categorie.setText("Tcategorie");
-            holder.txt_reference.setText("treference");
-            holder.txt_nom.setText("tnom");
-            holder.txt_prix.setText("tprix");
-            holder.txt_quantite.setText("tquantité");
-            holder.txt_description.setText("tdescription");
+            holder.txt_categorie.setText("");
+            holder.txt_reference.setText("");
+            holder.txt_nom.setText("");
+            holder.txt_prix.setText("");
+            holder.txt_quantite.setText("");
+            holder.txt_description.setText("");
         }
     }
-
 
 
     // stores and recycles views as they are scrolled off screen
@@ -97,7 +96,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    Profil getItem(int id) {
         return liste_produits.get(id);
     }
 

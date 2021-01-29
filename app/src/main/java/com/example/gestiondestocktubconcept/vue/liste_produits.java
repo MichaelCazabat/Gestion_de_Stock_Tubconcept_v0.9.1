@@ -11,29 +11,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.io.FileOutputStream;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
 public class liste_produits extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
-    List<String> data;
+    List<Profil> liste_produits;
     MyRecyclerViewAdapter adapter;
 
     @Override
@@ -42,12 +34,8 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
         setContentView(R.layout.activity_liste_produits);
 
         // Données pour remplir le RecyclerView :
-        data = new ArrayList<>();
-        data.add("Horse");
-        data.add("Cow");
-        data.add("Camel");
-        data.add("Sheep");
-        data.add("Goat");
+        liste_produits = new ArrayList<>();
+        liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
         //this.getListeProduit().add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voitssssrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrsssssssssssssssssure"));
 
         // set up le RecyclerView:
@@ -57,7 +45,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
-        adapter = new MyRecyclerViewAdapter(this, data);
+        adapter = new MyRecyclerViewAdapter(this, liste_produits);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
@@ -74,21 +62,21 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     }
 
     private void ajout_un_item() {
-        String item = "Pig";
-        int insertIndex = 2;
-        data.add(insertIndex, item);
+        Profil item = new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
+        int insertIndex = 1;
+        liste_produits.add(insertIndex, item);
         adapter.notifyItemInserted(insertIndex);
     }
 
-    private void ajout_des_items(){
-        ArrayList<String> items = new ArrayList<>();
-        items.add("Pig");
-        items.add("Chicken");
-        items.add("Dog");
-        int insertIndex = 2;
-        data.addAll(insertIndex, items);
-        adapter.notifyItemRangeInserted(insertIndex, items.size());
-    }
+   // private void ajout_des_items(){
+   //     ArrayList<String> items = new ArrayList<>();
+   //     items.add("Pig");
+   //     items.add("Chicken");
+   //     items.add("Dog");
+   //     int insertIndex = 2;
+   //     liste_produits.addAll(insertIndex, items);
+   //     adapter.notifyItemRangeInserted(insertIndex, items.size());
+   // }
 
 
     public void onClickData(View view) {
@@ -109,10 +97,6 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
             String value_nom = txt_input_nom.getText().toString();
             String value_reference = txt_input_reference.getText().toString();
             String value_categorie = txt_input_categorie.getText().toString();
-
-            Toast.makeText(getApplicationContext(), "ALED CA MARCHE PAS", Toast.LENGTH_LONG).show();
-           // listeProduit.add(new Profil("voiture", "RF745963-65", "twingo", 3000., 1, "c une joli voiture"));
-            //listeProduit.add(new Profil(value_categorie, value_reference, value_nom, value_prix, value_quantite, value_description));
 
         } else {
             Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
