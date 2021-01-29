@@ -29,20 +29,19 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     List<Profil> liste_produits;
     MyRecyclerViewAdapter adapter;
 
-    //TextView txt_categorie_produit = findViewById(R.id.tv_categorie_produit);
-    //TextView txt_reference_produit = findViewById(R.id.tv_reference_produit);
-    //TextView txt_nom_produit = findViewById(R.id.tv_nom_produit);
-    //TextView txt_prix_produit = findViewById(R.id.tv_prix_produit);
-    //TextView txt_quantite_produit = findViewById(R.id.tv_quantite_produit);
-    //TextView txt_description_produit = findViewById(R.id.tv_description_produit);
-//
-    //EditText value_categorie = findViewById(R.id.txt_input_description);
-    //EditText value_reference = findViewById(R.id.txt_input_reference);
-    //EditText value_nom = findViewById(R.id.txt_input_nom);
-    //EditText value_prix = findViewById(R.id.txt_input_prix);
-    //EditText value_quantite = findViewById(R.id.txt_input_quantite);
-    //EditText value_description = findViewById(R.id.txt_input_description);
+    TextView txt_categorie_produit ;
+    TextView txt_reference_produit ;
+    TextView txt_nom_produit ;
+    TextView txt_prix_produit ;
+    TextView txt_quantite_produit ;
+    TextView txt_description_produit ;
 
+    EditText value_categorie;
+    EditText value_reference;
+    EditText value_nom;
+    EditText value_prix;
+    EditText value_quantite;
+    EditText value_description ;
 
 
 
@@ -50,6 +49,14 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_produits);
+
+        value_categorie = (EditText) findViewById(R.id.txt_input_categorie);
+        value_reference = (EditText) findViewById(R.id.txt_input_reference);
+        value_nom = (EditText) findViewById(R.id.txt_input_nom);
+        value_prix = (EditText) findViewById(R.id.txt_input_prix);
+        value_quantite = (EditText) findViewById(R.id.txt_input_quantite);
+        value_description = (EditText) findViewById(R.id.txt_input_description);
+
 
         // Données pour remplir le RecyclerView :
         liste_produits = new ArrayList<>();
@@ -70,6 +77,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
 
     public void onButtonClick(View view){
+
         ajout_un_item("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
     }
 
@@ -116,7 +124,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
             String value_reference = txt_input_reference.getText().toString();
             String value_categorie = txt_input_categorie.getText().toString();
             TextView txt_categorie = findViewById(R.id.tv_categorie_produit);
-            txt_categorie.setText("ALed" );
+
         } else {
             Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
         }
