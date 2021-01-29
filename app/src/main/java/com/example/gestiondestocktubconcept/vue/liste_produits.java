@@ -105,39 +105,10 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
    //     adapter.notifyItemRangeInserted(insertIndex, items.size());
    // }
 
-
-    public void onClickData(View view) {
-
-        EditText txt_input_categorie =  findViewById(R.id.txt_input_categorie);
-        EditText txt_input_reference =  findViewById(R.id.txt_input_reference);
-        EditText txt_input_nom =  findViewById(R.id.txt_input_nom);
-        EditText txt_input_prix = findViewById(R.id.txt_input_prix);
-        EditText txt_input_quantite =  findViewById(R.id.txt_input_quantite);
-        EditText txt_input_description =  findViewById(R.id.txt_input_description);
-        Button btn_ajouter =  findViewById(R.id.btn_ajouter);
-
-
-        if (txt_input_categorie != null && txt_input_reference != null && txt_input_nom != null && txt_input_prix != null && txt_input_quantite != null && txt_input_description != null) {
-            String value_description = txt_input_description.getText().toString();
-            Integer value_quantite = (Integer.valueOf(txt_input_quantite.getText().toString()));
-            Double value_prix = Double.parseDouble(txt_input_prix.getText().toString());
-            String value_nom = txt_input_nom.getText().toString();
-            String value_reference = txt_input_reference.getText().toString();
-            String value_categorie = txt_input_categorie.getText().toString();
-            TextView txt_categorie = findViewById(R.id.tv_categorie_produit);
-
-        } else {
-            Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-
     public void export (View view){
 
 
             /*  ++Creation des données++  */
-
             StringBuilder data = new StringBuilder();
 
             data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
