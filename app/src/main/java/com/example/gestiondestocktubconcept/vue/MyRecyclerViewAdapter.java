@@ -10,21 +10,21 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gestiondestocktubconcept.R;
-
-import org.w3c.dom.Text;
+import com.example.gestiondestocktubconcept.modele.Profil;
 
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<String> liste_produits;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
     MyRecyclerViewAdapter(Context context, List<String> data) {
+
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.liste_produits = data;
     }
 
     // inflates the row layout from xml when needed
@@ -62,16 +62,10 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         }
     }
 
-    // total number of rows
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
 
 
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
         TextView txt_categorie;
         TextView txt_reference;
         TextView txt_nom;
@@ -95,9 +89,16 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         }
     }
 
+
+    // total number of rows
+    @Override
+    public int getItemCount() {
+        return liste_produits.size();
+    }
+
     // convenience method for getting data at click position
     String getItem(int id) {
-        return mData.get(id);
+        return liste_produits.get(id);
     }
 
     // allows clicks events to be caught
