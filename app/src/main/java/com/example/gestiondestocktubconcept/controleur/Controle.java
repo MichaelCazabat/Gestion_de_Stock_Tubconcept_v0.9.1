@@ -26,7 +26,7 @@ public final class Controle {
         if (instance == null) {
             Controle.instance = new Controle();
             accesDistant = new AccesDistant();
-            accesDistant.envoi("dernier", new JSONArray());
+         //   accesDistant.envoi("dernier", new JSONArray());
 
         }              //
         return Controle.instance;               //
@@ -37,6 +37,6 @@ public final class Controle {
     public void creerProfil(String categorie, String reference, String nom, Double prix, Integer quantite, String description){
         profil = new Profil(categorie, reference, nom, prix, quantite, description);
 
-        accesDistant.envoi("enreg", profil.convertToJSONArray());
+      //  accesDistant.envoi("enreg", profil.convertToJSONArray());
     }
 }

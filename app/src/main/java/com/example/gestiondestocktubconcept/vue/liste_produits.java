@@ -2,6 +2,7 @@ package com.example.gestiondestocktubconcept.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,60 +31,64 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class liste_produits extends AppCompatActivity {
+public class liste_produits extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
-
+    List<String> data;
+    MyRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_produits);
 
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.rv_produits);
-
-        List<Profil> listeProduit = new ArrayList<>();
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        // initialisation de l'adapter
-        MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(getListeProduit());
-        recyclerView.setAdapter(adapter);
-
-
-
-
+        // Données pour remplir le RecyclerView :
+        data = new ArrayList<>();
+        data.add("Horse");
+        data.add("Cow");
+        data.add("Camel");
+        data.add("Sheep");
+        data.add("Goat");
         //this.getListeProduit().add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voitssssrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrsssssssssssssssssure"));
 
+        // set up le RecyclerView:
+        RecyclerView recyclerView = findViewById(R.id.rv_produits);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        adapter = new MyRecyclerViewAdapter(this, data);
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
     }
 
 
-
-    //addItem(listeProduit,"voiture","RF745963-65","twingo",3000.,1,"c une joli voiture");
-    List<Profil> listeProduit = new ArrayList<>();
-
-    static List<Profil> getListeProduit() {
-        List<Profil> listeProduit = new ArrayList<>();
-        //Liste de nos produits
-        //  ajout_produits(listeProduit,txt_categorie,txt_reference,txt_nom,Double.parseDouble(txt_prix),Integer.parseInt(txt_quantite),txt_description);
-        listeProduit.add(new Profil("Voiture","A1232","Lamborghini Uracan",230000.00,5,"ceci est une description"));
-
-        return listeProduit;
+    public void onButtonClick(View view){
+        ajout_un_item();
     }
 
-    public static void ajout_produits(List<Profil> listeProduit, String categorie, String reference, String nom, Double prix, int quantite, String descritpion) {
-        listeProduit.add(new Profil(categorie, reference, nom, prix, quantite, descritpion));
-        //adapter.notifyItemInserted(adapter.getItemCount()-1);
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+
     }
 
+    private void ajout_un_item() {
+        String item = "Pig";
+        int insertIndex = 2;
+        data.add(insertIndex, item);
+        adapter.notifyItemInserted(insertIndex);
+    }
 
-
-
-    /* ++propriétées++ */
-    private ListView listView;
-    MyRecyclerViewAdapter adapter;
-    Integer nbr_click = 0;
-    /* --propriétées-- */
+    private void ajout_des_items(){
+        ArrayList<String> items = new ArrayList<>();
+        items.add("Pig");
+        items.add("Chicken");
+        items.add("Dog");
+        int insertIndex = 2;
+        data.addAll(insertIndex, items);
+        adapter.notifyItemRangeInserted(insertIndex, items.size());
+    }
 
 
     public void onClickData(View view) {
@@ -106,10 +111,8 @@ public class liste_produits extends AppCompatActivity {
             String value_categorie = txt_input_categorie.getText().toString();
 
             Toast.makeText(getApplicationContext(), "ALED CA MARCHE PAS", Toast.LENGTH_LONG).show();
-            //getListeProduit().add(new Profil(value_categorie,value_reference,value_nom,value_prix,value_quantite,value_description));
-            listeProduit.add(new Profil("voiture", "RF745963-65", "twingo", 3000., 1, "c une joli voiture"));
+           // listeProduit.add(new Profil("voiture", "RF745963-65", "twingo", 3000., 1, "c une joli voiture"));
             //listeProduit.add(new Profil(value_categorie, value_reference, value_nom, value_prix, value_quantite, value_description));
-           // adapter.notifyItemInserted(1);
 
         } else {
             Toast.makeText(getApplicationContext(), "Veuillez entrer des données", Toast.LENGTH_LONG).show();
@@ -117,7 +120,8 @@ public class liste_produits extends AppCompatActivity {
     }
 
 
-        public void export (View view){
+
+    public void export (View view){
 
 
             /*  ++Creation des données++  */
@@ -163,4 +167,5 @@ public class liste_produits extends AppCompatActivity {
         }
 
 
-    }
+
+}

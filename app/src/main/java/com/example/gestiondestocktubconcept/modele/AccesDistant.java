@@ -8,7 +8,7 @@ import com.example.gestiondestocktubconcept.outils.AsyncResponse;
 import org.json.JSONArray;
 
 public class AccesDistant implements AsyncResponse {
-    private static final String SERVERADDR = "http://192.168.1.70/Nouveau dossier/test.php"; //adresse http du serveur//
+    private static final String SERVERADDR = "http://192.168.1.70/Test_Json/Requete_JSON.php"; //adresse http du serveur//
 
     public AccesDistant(){
         super();
