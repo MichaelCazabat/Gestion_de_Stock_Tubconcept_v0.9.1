@@ -2,9 +2,6 @@ package com.example.gestiondestocktubconcept.modele;
 
 import android.util.Log;
 
-import com.example.gestiondestocktubconcept.outils.AccesHTTP;
-import com.example.gestiondestocktubconcept.outils.AsyncResponse;
-
 import org.json.JSONArray;
 
 public class AccesDistant implements AsyncResponse {
