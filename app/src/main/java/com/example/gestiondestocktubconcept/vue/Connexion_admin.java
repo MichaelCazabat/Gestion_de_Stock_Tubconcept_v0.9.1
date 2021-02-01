@@ -36,7 +36,7 @@ public class Connexion_admin extends AppCompatActivity{
         btn_connexion_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Connexion_admin.this, liste_produits.class));
+                startActivity(new Intent(Connexion_admin.this, choix_magasin_produits.class));
             }
         });
 

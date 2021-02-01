@@ -18,6 +18,7 @@
             android:name=".vue.liste_produits"
             android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".vue.Accueil" />
+        <activity android:name=".vue.liste_produits_admin" />
         <activity android:name=".vue.Connexion_admin" />
         <activity android:name=".vue.Page_login_commercant" />
         <activity

@@ -2,90 +2,112 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp">
+    android:gravity="right"
+    android:textAlignment="gravity"
+
     <TextView
         android:id="@+id/row_id_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
         android:ellipsize="end"
-        android:maxLength="11"
+        android:gravity="left"
+        android:maxLength="6"
         android:maxLines="1"
+        android:paddingRight="15sp"
         android:scrollHorizontally="true"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
 
     <TextView
         android:id="@+id/row_categorie_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:gravity="left"
+        android:maxLines="1"
+        android:paddingRight="15sp"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/row_reference_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:gravity="left"
+        android:maxLines="1"
+        android:paddingRight="15sp"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/row_nom_produits_admin"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
 
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:gravity="left"
+        android:maxLines="1"
+        android:paddingRight="15sp"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/row_prix_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:gravity="left"
+        android:maxLines="1"
+        android:paddingRight="15sp"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/row_quantite_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:gravity="left"
+        android:maxLines="1"
+        android:paddingRight="15sp"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/row_description_produits_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:autoSizeTextType="uniform"
+        android:breakStrategy="balanced"
         android:ellipsize="end"
+        android:gravity="left"
         android:maxLength="11"
         android:maxLines="1"
+        android:paddingRight="15sp"
         android:scrollHorizontally="true"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
+        app:autoSizeMaxTextSize="16sp"
         app:autoSizeTextType="uniform" />
-
 
 
 </LinearLayout>

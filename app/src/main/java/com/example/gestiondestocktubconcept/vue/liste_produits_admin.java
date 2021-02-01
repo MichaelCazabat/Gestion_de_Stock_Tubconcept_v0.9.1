@@ -29,7 +29,7 @@ public class liste_produits_admin extends AppCompatActivity {
     //definition des varaible qui apparaissent dans le php
     String id, reference, nom, prix, quantite, description;
     // url de la page sur laquelle s'affiche le php
-    private static String JSON_URL = "";
+    private static String JSON_URL = "https://run.mocky.io/v3/45f49478-674e-4197-a069-cbad52aebe8f";
 
     ArrayList<HashMap<String, String>> produitsliste;
 
@@ -135,7 +135,7 @@ public class liste_produits_admin extends AppCompatActivity {
                     liste_produits_admin.this,produitsliste,
                     R.layout.row_layout_liste_produits_admin,
                     new String[]{"id","reference","nom","prix","quantite","description"},
-                    new int[]{R.id.row_id_produits_admin, R.id.tv_reference_produit, R.id.row_nom_produits_admin, R.id.row_prix_produits_admin, R.id.row_quantite_produits_admin, R.id.tv_description_produit});
+                    new int[]{R.id.row_id_produits_admin, R.id.row_reference_produits_admin, R.id.row_nom_produits_admin, R.id.row_prix_produits_admin, R.id.row_quantite_produits_admin, R.id.row_description_produits_admin});
                     lv.setAdapter(adapter);
         }
 
