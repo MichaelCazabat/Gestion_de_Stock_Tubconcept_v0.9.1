@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gestiondestocktubconcept">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GestionDeStockTubconcept">
-        <activity android:name=".vue.Magasin"></activity>
+        <activity android:name=".vue.choix_magasin_produits"></activity>
+        <activity android:name=".vue.Magasin" />
         <activity android:name=".vue.inscription_commercant" />
         <activity
             android:name=".vue.liste_produits"
@@ -37,6 +40,5 @@
                 android:resource="@xml/provider_paths" />
         </provider>
     </application>
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
