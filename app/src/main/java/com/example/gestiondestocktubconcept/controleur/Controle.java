@@ -4,7 +4,7 @@ import android.media.Image;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.gestiondestocktubconcept.modele.AccesDistant;
+
 import com.example.gestiondestocktubconcept.modele.Profil;
 
 import org.json.JSONArray;
@@ -14,7 +14,7 @@ public final class Controle {
 
     private static Controle instance = null;
     private Profil profil;
-    private static AccesDistant accesDistant;
+
 
 
     private Controle() {
@@ -25,7 +25,7 @@ public final class Controle {
     public static final Controle getInstance() { //singleton
         if (instance == null) {
             Controle.instance = new Controle();
-            accesDistant = new AccesDistant();
+
          //   accesDistant.envoi("dernier", new JSONArray());
 
         }              //
