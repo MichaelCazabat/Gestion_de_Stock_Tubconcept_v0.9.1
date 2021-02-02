@@ -74,8 +74,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
         // Données pour remplir le RecyclerView :
         liste_produits = new ArrayList<>();
-        liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
-        //this.getListeProduit().add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voitssssrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrsssssssssssssssssure"));
+        //liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
 
         // set up le RecyclerView:
         RecyclerView recyclerView = findViewById(R.id.rv_produits);
@@ -91,7 +90,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
 
     public  void isEmpty(EditText editText){
-        if (editText.getText().toString() == ""){
+        if (editText.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_LONG).show();
         }
     }
@@ -124,15 +123,6 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
         adapter.notifyItemInserted(insertIndex);
     }
 
-   // private void ajout_des_items(){
-   //     ArrayList<String> items = new ArrayList<>();
-   //     items.add("Pig");
-   //     items.add("Chicken");
-   //     items.add("Dog");
-   //     int insertIndex = 2;
-   //     liste_produits.addAll(insertIndex, items);
-   //     adapter.notifyItemRangeInserted(insertIndex, items.size());
-   // }
 
     public void export (View view){
 
