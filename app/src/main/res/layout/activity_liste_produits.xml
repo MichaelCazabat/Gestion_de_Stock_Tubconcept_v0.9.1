@@ -213,7 +213,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal|center_vertical"
-                        android:gravity="center|center_vertical" />
+                        android:gravity="center|center_vertical"
+                        android:inputType="number" />
                 </LinearLayout>
 
                 <LinearLayout
