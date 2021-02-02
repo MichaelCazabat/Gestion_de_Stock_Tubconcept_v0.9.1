@@ -34,7 +34,7 @@ public class Page_login_commercant extends AppCompatActivity {
 
                         @Override
                         public void onClick(View v) {
-                                Intent l = new Intent(Page_login_commercant.this,Magasin.class);
+                                Intent l = new Intent(Page_login_commercant.this,liste_produits.class);
                                 startActivity(l);
                         }
                 });

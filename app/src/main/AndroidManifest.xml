@@ -13,7 +13,6 @@
         android:theme="@style/Theme.GestionDeStockTubconcept">
         <activity android:name=".vue.choix_magasin_produits"></activity>
         <activity android:name=".vue.Magasin" />
-        <activity android:name=".vue.inscription_commercant" />
         <activity
             android:name=".vue.liste_produits"
             android:windowSoftInputMode="adjustNothing" />
