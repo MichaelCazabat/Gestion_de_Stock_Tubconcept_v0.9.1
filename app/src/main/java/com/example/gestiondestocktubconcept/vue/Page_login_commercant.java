@@ -47,10 +47,15 @@ public class Page_login_commercant extends AppCompatActivity {
                         }
                 });
 
+                String mdp = Mots_de_passe.getMotdepasse;
 
                 Toast.makeText(this, sha1Hash(test), Toast.LENGTH_SHORT).show();
+
         }
 
+
+
+        // partie qui convert les string en hashing sha1
         String sha1Hash( String toHash )
         {
                 String hash = null;
