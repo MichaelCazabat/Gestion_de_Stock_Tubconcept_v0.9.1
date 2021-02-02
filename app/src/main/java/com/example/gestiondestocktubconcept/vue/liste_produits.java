@@ -85,7 +85,6 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
     public void onButtonClick(View view){
 
-
         if(isEmpty(value_categorie) && isEmpty(value_description) && isEmpty(value_nom) && isEmpty(value_prix) && isEmpty(value_quantite) && isEmpty(value_reference)){
             Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
             Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
