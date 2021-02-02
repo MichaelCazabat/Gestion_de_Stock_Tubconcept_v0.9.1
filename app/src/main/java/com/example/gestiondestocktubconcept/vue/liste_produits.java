@@ -90,7 +90,22 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     }
 
 
+    public  void isEmpty(EditText editText){
+        if (editText.getText().toString() == ""){
+            Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
     public void onButtonClick(View view){
+        isEmpty(value_categorie);
+        isEmpty(value_description);
+        isEmpty(value_nom);
+        isEmpty(value_prix);
+        isEmpty(value_quantite);
+        isEmpty(value_reference);
+
+
         Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
         Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
         ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
