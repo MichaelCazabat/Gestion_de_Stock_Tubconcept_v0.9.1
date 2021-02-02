@@ -9,33 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class liste_produits extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
@@ -74,7 +59,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
         // Données pour remplir le RecyclerView :
         liste_produits = new ArrayList<>();
-        //liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
+        liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
 
         // set up le RecyclerView:
         RecyclerView recyclerView = findViewById(R.id.rv_produits);
@@ -89,25 +74,24 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     }
 
 
-    public  void isEmpty(EditText editText){
-        if (editText.getText().toString().isEmpty()){
+    public boolean isEmpty(EditText editText){
+        if (editText.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_LONG).show();
+            return false;
         }
+        return true;
     }
 
 
     public void onButtonClick(View view){
-        isEmpty(value_categorie);
-        isEmpty(value_description);
-        isEmpty(value_nom);
-        isEmpty(value_prix);
-        isEmpty(value_quantite);
-        isEmpty(value_reference);
 
 
-        Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
-        Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
-        ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
+        if(isEmpty(value_categorie) && isEmpty(value_description) && isEmpty(value_nom) && isEmpty(value_prix) && isEmpty(value_quantite) && isEmpty(value_reference)){
+            Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
+            Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
+            ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
+        }
+
     }
 
     @Override
