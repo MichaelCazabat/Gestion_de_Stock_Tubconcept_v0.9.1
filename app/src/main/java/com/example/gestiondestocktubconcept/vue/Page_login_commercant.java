@@ -3,6 +3,7 @@ package com.example.gestiondestocktubconcept.vue;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,15 +42,14 @@ public class Page_login_commercant extends AppCompatActivity {
                                         Intent l = new Intent(Page_login_commercant.this, liste_produits.class);
                                         startActivity(l);
                                 }else{
-                                        Toast.makeText(Page_login_commercant.this, "Vos identifiants sonts incorrects", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Page_login_commercant.this, "Vos identifiants sonts incorrects", Toast.LENGTH_LONG).show();
+
                                 }
 
                         }
                 });
 
-                String mdp = Mots_de_passe.getMotdepasse;
 
-                Toast.makeText(this, sha1Hash(test), Toast.LENGTH_SHORT).show();
 
         }
 
@@ -93,6 +93,7 @@ public class Page_login_commercant extends AppCompatActivity {
                 }
                 return new String( hexChars );
         }
+
 
 
 }

@@ -4,11 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-
-import com.example.gestiondestocktubconcept.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +21,6 @@ import java.util.HashMap;
 public class Mots_de_passe extends AppCompatActivity {
 
 
-
     //definition des varaible qui apparaissent dans le php
     String id_utilisateur, pseudo, mail, motdepasse;
     // url de la page sur laquelle s'affiche le php
@@ -35,7 +29,6 @@ public class Mots_de_passe extends AppCompatActivity {
 
 
     ArrayList<HashMap<String, String>> mots_de_passe_liste;
-
 
 
 
@@ -53,7 +46,6 @@ public class Mots_de_passe extends AppCompatActivity {
 
 
     public class GetData extends AsyncTask<String, String, String> {
-
 
 
         @Override
@@ -134,18 +126,11 @@ public class Mots_de_passe extends AppCompatActivity {
             }
 
 
+
         }
+
     }
 
-    public String getMotdepasse(){
-        return motdepasse;
-    }
-    public String getMail(){
-        return mail;
-    }
-    public ArrayList<HashMap<String, String>> getmots_de_passe_liste(){
-        return mots_de_passe_liste;
-    }
 
 }
 
