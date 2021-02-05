@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,12 +18,26 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Mots_de_passe extends AppCompatActivity {
 
 
+    public List<String> getMdp_liste() {
+        return mdp_liste;
+    }
+
+    public List<String> getMail_liste() {
+        return mail_liste;
+    }
+
+    public List<String> mdp_liste = new ArrayList<>();
+    public List<String> mail_liste = new ArrayList<>();
     //definition des varaible qui apparaissent dans le php
     String id_utilisateur, pseudo, mail, motdepasse;
+
+
+
     // url de la page sur laquelle s'affiche le php
     private static String JSON_URL = "https://run.mocky.io/v3/9fd0eec4-4fb9-4e40-8f0d-df483cc75860";
 
@@ -41,11 +56,12 @@ public class Mots_de_passe extends AppCompatActivity {
         GetData getData = new GetData();
         getData.execute();
 
+        Log.i("message", id_utilisateur);
 
     }
 
 
-    public class GetData extends AsyncTask<String, String, String> {
+    public  class GetData extends AsyncTask<String, String, String> {
 
 
         @Override
@@ -116,8 +132,11 @@ public class Mots_de_passe extends AppCompatActivity {
                     utilisateurs.put("mail", mail);
                     utilisateurs.put("motdepasse", motdepasse);
 
+                    mail_liste.add(mail);
+                    mdp_liste.add(motdepasse);
 
                     mots_de_passe_liste.add(utilisateurs);
+
 
 
                 }
@@ -128,6 +147,7 @@ public class Mots_de_passe extends AppCompatActivity {
 
 
         }
+
 
     }
 
