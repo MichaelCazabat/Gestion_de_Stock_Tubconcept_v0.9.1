@@ -32,8 +32,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center_horizontal|center_vertical"
-                android:inputType="textPersonName"
-                android:text="Identifiants" />
+                android:hint="identifiants"
+                android:inputType="textPersonName" />
         </LinearLayout>
 
         <LinearLayout

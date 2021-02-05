@@ -53,9 +53,6 @@ public class Page_login_commercant extends AppCompatActivity {
         List<String> mail_liste = new ArrayList<>();
         List<String> mdp_liste = new ArrayList<>();
 
-        Integer z = null;
-
-        SharedPreferences sharedPreferences;
 
 
         @Override
@@ -63,8 +60,6 @@ public class Page_login_commercant extends AppCompatActivity {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.connexion_commercant);
 
-                SharedPreferences sharedpreferences = getSharedPreferences( "mypreference", Context.MODE_PRIVATE);
-                sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
                 mots_de_passe_liste = new ArrayList<>();
                 produitsliste = new ArrayList<>();
 

@@ -30,8 +30,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName"
-                android:text="identifiants" />
+                android:hint="identifiants"
+                android:inputType="textPersonName" />
 
         </LinearLayout>
 
