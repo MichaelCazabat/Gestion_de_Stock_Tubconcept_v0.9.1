@@ -47,12 +47,9 @@ public class Page_login_commercant extends AppCompatActivity {
 
         ArrayList<HashMap<String, String>> mots_de_passe_liste;
         ArrayList<HashMap<String, String>> produitsliste;
-        //definition des varaible qui apparaissent dans le php
-        String id, reference, nom, prix, quantite, description;
 
         String id_utilisateur, pseudo, mail, motdepasse;
-        String maileditor = null;
-        String mdpeditor = null;
+
         List<String> mail_liste = new ArrayList<>();
         List<String> mdp_liste = new ArrayList<>();
 
@@ -86,34 +83,27 @@ public class Page_login_commercant extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
-                                Integer nbr_user = mail_liste.size();
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                if(mail_liste.contains(txt_id_commercant.getText().toString())){
+                                       Integer indexMail = mail_liste.indexOf(txt_id_commercant.getText().toString());
+                                       String mdpHashe =sha1Hash(mdp_commercant.getText().toString());
+                                       Log.i("message",mdpHashe);
+                                       if(mdp_liste.get(indexMail).equals(sha1Hash(mdp_commercant.getText().toString()))){
+                                               Intent l = new Intent(Page_login_commercant.this, liste_produits.class);
+                                               startActivity(l);
+                                       }else{
+                                               Toast.makeText(Page_login_commercant.this, "Mauvais mot de pasee", Toast.LENGTH_SHORT).show();
+                                               Log.i("message","Mauvais mot de passe");
+                                       }
 
-                                for (z=0;z<nbr_user;z+=1) {
-                                        editor.putString(mail_liste.get(z), mdp_liste.get(z));
-                                        editor.commit();
-                                }
-
-                                Log.i("message", mail_liste+"\n"+mdp_liste+"");
-
-                                if (mdp_commercant.getText().toString().equals("  ") && txt_id_commercant.getText().toString().equals("ezaeza")) {
-                                        Intent l = new Intent(Page_login_commercant.this, liste_produits.class);
-                                        startActivity(l);
                                 }else{
-
-
+                                        Toast.makeText(Page_login_commercant.this, "Mauvais identifiants", Toast.LENGTH_SHORT).show();
+                                        Log.i("message", "Mauvais identifiants");
                                 }
+
                         }
                 });
         }
 
-
-
-        public void test(){
-                Log.i("message",maileditor+"******");
-
-
-        }
 
         public class GetData extends AsyncTask<String, String, String> {
 
@@ -226,7 +216,7 @@ public class Page_login_commercant extends AppCompatActivity {
         }
 
         // http://stackoverflow.com/questions/9655181/convert-from-byte-array-to-hex-string-in-java
-        final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
+        final protected static char[] hexArray = "0123456789abcdef".toCharArray();
         public static String bytesToHex( byte[] bytes )
         {
                 char[] hexChars = new char[ bytes.length * 2 ];
