@@ -63,10 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:autoSizeTextType="uniform"
-        android:ellipsize="end"
-        android:maxLength="11"
-        android:maxLines="1"
+
         android:scrollHorizontally="true"
         android:visibility="visible"
         app:autoSizeMinTextSize="6sp"

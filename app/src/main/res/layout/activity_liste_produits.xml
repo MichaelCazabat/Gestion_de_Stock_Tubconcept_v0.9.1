@@ -253,13 +253,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
-
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
             <androidx.recyclerview.widget.RecyclerView
 
                 android:id="@+id/rv_produits"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
+        </HorizontalScrollView>
             <TextView
                 android:id="@+id/txt_recy_categorie"
                 android:layout_width="wrap_content"
