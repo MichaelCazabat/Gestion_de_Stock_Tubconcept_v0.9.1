@@ -12,20 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:autoSizeTextType="uniform"
-        android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
     <TextView
         android:id="@+id/tv_reference_produit"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:autoSizeTextType="uniform"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
     <TextView
         android:id="@+id/tv_nom_produit"
@@ -33,20 +28,16 @@
 
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:autoSizeTextType="uniform"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
     <TextView
         android:id="@+id/tv_prix_produit"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:autoSizeTextType="uniform"
         android:visibility="visible"
-        app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
     <TextView
         android:id="@+id/tv_quantite_produit"
@@ -56,7 +47,7 @@
         android:autoSizeTextType="uniform"
         android:visibility="visible"
         app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
     <TextView
         android:id="@+id/tv_description_produit"
@@ -67,7 +58,7 @@
         android:scrollHorizontally="true"
         android:visibility="visible"
         app:autoSizeMinTextSize="6sp"
-        app:autoSizeTextType="uniform" />
+        app:autoSizeTextType="none" />
 
 
 </LinearLayout>

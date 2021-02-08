@@ -40,25 +40,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         //String animal = mData.get(position);
         //holder.myTextView.setText(animal);
 
-        int rowpos = holder.getBindingAdapterPosition();
 
-        if(rowpos==0){
-            //Cellules de l'entête
-            // permet de mettre un background a la cellule : rowViewHolder.txt_categorie.setBackgroundResource();
-            holder.txt_categorie.setText("Categories");
-            holder.txt_reference.setText("Reference");
-            holder.txt_nom.setText("Nom");
-            holder.txt_prix.setText("Prix");
-            holder.txt_quantite.setText("Quantité");
-            holder.txt_description.setText("Description");
-        }else{
             holder.txt_categorie.setText(liste_produits.get(position).getCategorie());
-             holder.txt_reference.setText(liste_produits.get(position).getReference());
-             holder.txt_nom.setText(liste_produits.get(position).getNom());
-             holder.txt_prix.setText(liste_produits.get(position).getPrixUnite().toString());
-             holder.txt_quantite.setText(liste_produits.get(position).getQuantite().toString());
-             holder.txt_description.setText(liste_produits.get(position).getDescription());
-        }
+            holder.txt_reference.setText(liste_produits.get(position).getReference());
+            holder.txt_nom.setText(liste_produits.get(position).getNom());
+            holder.txt_prix.setText(liste_produits.get(position).getPrixUnite().toString());
+            holder.txt_quantite.setText(liste_produits.get(position).getQuantite().toString());
+            holder.txt_description.setText(liste_produits.get(position).getDescription());
+
     }
 
 
@@ -109,4 +98,3 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         void onItemClick(View view, int position);
     }
 }
-

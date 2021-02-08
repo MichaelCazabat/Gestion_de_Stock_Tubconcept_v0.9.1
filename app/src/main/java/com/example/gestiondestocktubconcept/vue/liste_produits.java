@@ -59,7 +59,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
         // Données pour remplir le RecyclerView :
         liste_produits = new ArrayList<>();
-        liste_produits.add(new Profil("voiture","RF745963-65","twingo",3000.,1,"c une joli voiture"));
+
 
         // set up le RecyclerView:
         RecyclerView recyclerView = findViewById(R.id.rv_produits);
@@ -101,7 +101,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
     private void ajout_un_item(String categorie,String reference,String nom,Double prix,Integer quantite,String description ) {
         Profil item = new Profil(categorie, reference, nom, prix, quantite, description);
-        int insertIndex = 1;
+        int insertIndex = 0;
         liste_produits.add(insertIndex, item);
         adapter.notifyItemInserted(insertIndex);
     }
@@ -110,46 +110,46 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     public void export (View view){
 
 
-            /*  ++Creation des données++  */
-            StringBuilder data = new StringBuilder();
+        /*  ++Creation des données++  */
+        StringBuilder data = new StringBuilder();
 
-            data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
-            for (int i = 0; i < 6; i++) {
-                data.append("\n" + "test");
-            }
-
-            /*  --Creation des données--  */
-
-
-            try {
-                /*  ++Sauvegarde des données dans l'appareil++ */
-
-                FileOutputStream out = openFileOutput("data.csv", Context.MODE_PRIVATE);
-                out.write((data.toString()).getBytes());
-                out.close();
-
-                /*  --Sauvegarde des données dans l'appareil-- */
-
-
-                /*  ++Export des données++  */
-
-                Context context = getApplicationContext();
-                File filelocation = new File(getFilesDir(), "data.csv");
-                Uri path = FileProvider.getUriForFile(context, "com.example.gestiondestocktubconcept.FileProvider", filelocation);
-                Intent fileIntent = new Intent(Intent.ACTION_SEND);
-                fileIntent.setType("text/csv");
-                fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
-                fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                fileIntent.putExtra(Intent.EXTRA_STREAM, path);
-                startActivity(Intent.createChooser(fileIntent, "Send mail"));
-
-                /*  --Export des données--  */
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-
+        data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
+        for (int i = 0; i < 6; i++) {
+            data.append("\n" + "test");
         }
+
+        /*  --Creation des données--  */
+
+
+        try {
+            /*  ++Sauvegarde des données dans l'appareil++ */
+
+            FileOutputStream out = openFileOutput("data.csv", Context.MODE_PRIVATE);
+            out.write((data.toString()).getBytes());
+            out.close();
+
+            /*  --Sauvegarde des données dans l'appareil-- */
+
+
+            /*  ++Export des données++  */
+
+            Context context = getApplicationContext();
+            File filelocation = new File(getFilesDir(), "data.csv");
+            Uri path = FileProvider.getUriForFile(context, "com.example.gestiondestocktubconcept.FileProvider", filelocation);
+            Intent fileIntent = new Intent(Intent.ACTION_SEND);
+            fileIntent.setType("text/csv");
+            fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+            fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+            startActivity(Intent.createChooser(fileIntent, "Send mail"));
+
+            /*  --Export des données--  */
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
 
 
