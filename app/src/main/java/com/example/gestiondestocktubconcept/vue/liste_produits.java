@@ -1,19 +1,20 @@
 package com.example.gestiondestocktubconcept.vue;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
@@ -21,12 +22,17 @@ import com.example.gestiondestocktubconcept.modele.Profil;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class liste_produits extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
     List<Profil> liste_produits;
     MyRecyclerViewAdapter adapter;
+
+
+
+    StringBuilder data = new StringBuilder();
 
 
     TextView txt_categorie_produit ;
@@ -89,13 +95,17 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     public void onButtonClick(View view){
 
         if(isEmpty(value_categorie) && isEmpty(value_description) && isEmpty(value_nom) && isEmpty(value_prix) && isEmpty(value_quantite) && isEmpty(value_reference)){
-            Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
-            Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
+            Double value_prix_double = Double.parseDouble(value_prix.getText().toString().replace(",","."));
+            Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString().replace(",","."));
             ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
+            // : 09/02/2021 quand tu mets une valeur a virgule dans quantité ou prix ca crash , convert la virgule en un point
+            //résolu
 
 
-
+        }else{
+            Toast.makeText(this, "Veuillez entrer de valeurs valides", Toast.LENGTH_LONG).show();
         }
+
 
     }
 
@@ -117,28 +127,29 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     }
 
 
-
     public void export (View view){
 
 
        // /*  ++Creation des données++  */
 
 
-        StringBuilder data = new StringBuilder();
+
         int nbr_produits = adapter.getItemCount();
-        data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
-        for(Integer s = 0; s < nbr_produits; s++){
-            data.append(liste_produits.get(0).toString());
-            data.charAt(0);
+        for (int s = 0; s < nbr_produits; s++) {
+            data.append("\n"+String.valueOf(liste_produits.get(s).convertToJSONArray()));
+            Log.i("message", String.valueOf(liste_produits.get(s).convertToJSONArray()));
+
         }
 
-        //data.append("\n"+value_categorie.getText()+";");
-        //data.append(value_reference.getText()+";");
-        //data.append(value_nom.getText()+";");
-        //data.append(value_prix.getText()+";");
-        //data.append(value_quantite.getText()+";");
-        //data.append(value_description.getText()+";");
-
+        String data1 = data.toString();
+        String data2 = data1.replaceAll("]",",");
+        String data3 = data2.replaceAll("\\[","");
+        String data4 = data3.replaceAll("\"","");
+        Log.i("message", data4);
+        // set la lenght a 0 c'est mieu pour la mémoire que d'en refaire une.
+        data.setLength(0);
+        data.append("Categorie,Reference,Nom,Prix,Quantites,Description");
+        data.append(data4);
         /*  --Creation des données--  */
 
 

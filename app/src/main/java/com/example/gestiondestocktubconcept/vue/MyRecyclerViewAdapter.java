@@ -12,9 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.gestiondestocktubconcept.R;
 import com.example.gestiondestocktubconcept.modele.Profil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+
+    public String input1;
+    public String input2;
+    public String input3;
+    public String input4;
+    public String input5;
+    public String input6;
 
     private List<Profil> liste_produits;
     private LayoutInflater mInflater;
@@ -97,4 +105,5 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public interface ItemClickListener {
         void onItemClick(View view, int position);
     }
+
 }
