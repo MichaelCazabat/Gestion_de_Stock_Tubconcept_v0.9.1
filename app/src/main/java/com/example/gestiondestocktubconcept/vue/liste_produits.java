@@ -28,6 +28,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     List<Profil> liste_produits;
     MyRecyclerViewAdapter adapter;
 
+
     TextView txt_categorie_produit ;
     TextView txt_reference_produit ;
     TextView txt_nom_produit ;
@@ -41,6 +42,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
     EditText value_prix;
     EditText value_quantite;
     EditText value_description ;
+
 
 
     @Override
@@ -71,6 +73,7 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
         adapter = new MyRecyclerViewAdapter(this, liste_produits);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
+
     }
 
 
@@ -89,6 +92,9 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
             Double value_prix_double = Double.parseDouble(value_prix.getText().toString());
             Integer value_quantite_int = Integer.parseInt(value_quantite.getText().toString());
             ajout_un_item(value_categorie.getText().toString(),value_reference.getText().toString(),value_nom.getText().toString(),value_prix_double,value_quantite_int,value_description.getText().toString());
+
+
+
         }
 
     }
@@ -99,24 +105,39 @@ public class liste_produits extends AppCompatActivity implements MyRecyclerViewA
 
     }
 
+
+
     private void ajout_un_item(String categorie,String reference,String nom,Double prix,Integer quantite,String description ) {
         Profil item = new Profil(categorie, reference, nom, prix, quantite, description);
         int insertIndex = 0;
         liste_produits.add(insertIndex, item);
         adapter.notifyItemInserted(insertIndex);
+
+
     }
+
 
 
     public void export (View view){
 
 
-        /*  ++Creation des données++  */
-        StringBuilder data = new StringBuilder();
+       // /*  ++Creation des données++  */
 
+
+        StringBuilder data = new StringBuilder();
+        int nbr_produits = adapter.getItemCount();
         data.append("Catégorie,Référence,Nom,Prix,Quantités,Description");
-        for (int i = 0; i < 6; i++) {
-            data.append("\n" + "test");
+        for(Integer s = 0; s < nbr_produits; s++){
+            data.append(liste_produits.get(0).toString());
+            data.charAt(0);
         }
+
+        //data.append("\n"+value_categorie.getText()+";");
+        //data.append(value_reference.getText()+";");
+        //data.append(value_nom.getText()+";");
+        //data.append(value_prix.getText()+";");
+        //data.append(value_quantite.getText()+";");
+        //data.append(value_description.getText()+";");
 
         /*  --Creation des données--  */
 
