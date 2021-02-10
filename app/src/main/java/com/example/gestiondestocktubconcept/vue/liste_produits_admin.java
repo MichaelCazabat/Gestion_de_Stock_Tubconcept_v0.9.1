@@ -29,7 +29,7 @@ public class liste_produits_admin extends AppCompatActivity {
     //definition des varaible qui apparaissent dans le php
     String id, reference, nom, prix, quantite, description;
     // url de la page sur laquelle s'affiche le php
-    private static String JSON_URL = "https://run.mocky.io/v3/d8a5de11-2b7b-4854-bbcd-e7248e595fd7";
+    private static String JSON_URL = "https://run.mocky.io/v3/e18a969b-0c4d-4df9-9a3a-ffffe2e2fc2d";
 
     ArrayList<HashMap<String, String>> produitsliste;
 
