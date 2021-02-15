@@ -34,12 +34,12 @@ public class Connexion_admin extends AppCompatActivity{
 
 
     // url de la page sur laquelle s'affiche le php
-    private static String JSON_URL = "https://run.mocky.io/v3/9fd0eec4-4fb9-4e40-8f0d-df483cc75860";
+    private static String JSON_URL = "https://run.mocky.io/v3/7b7945ed-3944-415c-a769-af4f801efce6";
 
     ArrayList<HashMap<String, String>> mots_de_passe_liste;
     ArrayList<HashMap<String, String>> produitsliste;
 
-    String id_utilisateur, pseudo, mail, motdepasse;
+    String id_utilisateur, mail, motdepasse;
 
     List<String> mail_liste = new ArrayList<>();
     List<String> mdp_liste = new ArrayList<>();
@@ -143,29 +143,27 @@ public class Connexion_admin extends AppCompatActivity{
             try {
                 //nom de la "table" dans le php
                 JSONObject JsonObject = new JSONObject(s);
-                JSONArray jsonArray = JsonObject.getJSONArray("utilisateur");
+                JSONArray jsonArray = JsonObject.getJSONArray("administrateur");
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                     // affectation des champs dans le php au variables
-                    id_utilisateur = jsonObject1.getString("id_utilisateur");
-                    pseudo = jsonObject1.getString("pseudo");
+                    id_utilisateur = jsonObject1.getString("id");
+
                     mail = jsonObject1.getString("mail");
-                    motdepasse = jsonObject1.getString("motdepasse");
+                    motdepasse = jsonObject1.getString("mdp");
 
 
                     // hashmap
                     HashMap<String, String> utilisateurs = new HashMap<>();
 
                     utilisateurs.put("id_utilisateur", id_utilisateur);
-                    utilisateurs.put("pseudo", pseudo);
                     utilisateurs.put("mail", mail);
                     utilisateurs.put("motdepasse", motdepasse);
 
                     mail_liste.add(mail);
                     mdp_liste.add(motdepasse);
-
                     mots_de_passe_liste.add(utilisateurs);
 
 
