@@ -177,7 +177,7 @@ public class Connexion_admin extends AppCompatActivity{
     }
 
 
-    // partie qui convert les string en hashing sha1
+    // parti qui convert les string en hashing sha1
     String sha1Hash( String toHash ) {
         String hash = null;
         try
